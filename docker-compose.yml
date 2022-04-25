@@ -1,0 +1,18 @@
+version: "2.0"
+
+services:
+
+  cowrie:
+    restart: always
+    environment:
+      - "COWRIEARGS=--config /opt/cowrie/etc/cowrie.cfg"
+      - "XARGS=-n"
+    build: .
+    ports:
+      - "2222:2222"
+      - "2223:2223"
+    volumes:
+      - "/opt/cowrie/etc:/opt/cowrie/etc"
+      - "/opt/cowrie/dl:/opt/cowrie/dl"
+      - "/opt/cowrie/log:/opt/cowrie/log"
+  
